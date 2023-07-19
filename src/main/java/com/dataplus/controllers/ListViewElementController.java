@@ -31,7 +31,7 @@ public class ListViewElementController implements Initializable {
         copyPassBT.setOnAction((event) ->{
             Clipboard clipboard = Clipboard.getSystemClipboard();
             ClipboardContent content = new ClipboardContent();
-            content.putString(copyPassBT.getText());
+            content.putString(passLB.getText());
             clipboard.setContent(content);
         });
 
