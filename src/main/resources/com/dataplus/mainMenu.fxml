@@ -1,52 +1,131 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.dataplus.controllers.MainMenuController">
-   <top>
-      <ToolBar nodeOrientation="LEFT_TO_RIGHT" prefHeight="40.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-        <items>
-          <Button fx:id="folderBT" mnemonicParsing="false" text="Folder" />
-            <Button fx:id="accountBT" mnemonicParsing="false" text="Account" />
-        </items>
-      </ToolBar>
-   </top>
-   <right>
-      <SplitPane dividerPositions="0.5" orientation="VERTICAL" prefHeight="200.0" prefWidth="150.0">
-        <items>
-            <VBox fx:id="folderVB" alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+<AnchorPane minHeight="500.0" minWidth="600.0" prefHeight="500.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.dataplus.controllers.MainMenuController">
+   <children>
+      <BorderPane fx:id="mainMenuBP" maxHeight="-Infinity" maxWidth="-Infinity" stylesheets="@../CSS/style.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <top>
+            <ToolBar nodeOrientation="LEFT_TO_RIGHT" prefHeight="40.0" prefWidth="200.0" styleClass="VBox12" BorderPane.alignment="CENTER">
+              <items>
+                <Button fx:id="folderBT" focusTraversable="false" mnemonicParsing="false" styleClass="button1" text="Folder" />
+                  <Button fx:id="accountBT" focusTraversable="false" mnemonicParsing="false" styleClass="button1" text="Account" />
+              </items>
+            </ToolBar>
+         </top>
+         <right>
+            <SplitPane dividerPositions="0.5" orientation="VERTICAL" prefWidth="150.0" styleClass="splitBackground">
+              <items>
+                  <VBox fx:id="folderVB" alignment="CENTER" maxHeight="150.0" minHeight="150.0" prefHeight="150.0" prefWidth="149.0">
+                     <children>
+                        <Label text="Folder Name">
+                           <VBox.margin>
+                              <Insets bottom="1.0" left="1.0" right="1.0" />
+                           </VBox.margin>
+                        </Label>
+                        <TextField fx:id="folderNameTF" promptText="Personal accounts" styleClass="textField">
+                           <VBox.margin>
+                              <Insets bottom="5.0" top="5.0" />
+                           </VBox.margin>
+                        </TextField>
+                        <Button fx:id="folderSaveBT" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="30.0" prefWidth="30.0" styleClass="buttonEdit">
+                           <VBox.margin>
+                              <Insets bottom="5.0" top="5.0" />
+                           </VBox.margin>
+                           <graphic>
+                              <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@imgs/1x/floppy-disk.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                        <Label fx:id="noteFolderLB" text="NOTA">
+                           <VBox.margin>
+                              <Insets bottom="5.0" top="5.0" />
+                           </VBox.margin>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <VBox fx:id="accVB" alignment="CENTER">
+                     <children>
+                        <Label text="Account">
+                           <VBox.margin>
+                              <Insets bottom="5.0" top="5.0" />
+                           </VBox.margin>
+                        </Label>
+                        <TextField fx:id="accTF" promptText="Personal email" styleClass="textField">
+                           <VBox.margin>
+                              <Insets bottom="5.0" top="5.0" />
+                           </VBox.margin>
+                        </TextField>
+                        <Label text="Email">
+                           <VBox.margin>
+                              <Insets bottom="5.0" top="5.0" />
+                           </VBox.margin>
+                        </Label>
+                        <TextField fx:id="emailTF" promptText="ip_33@mail.com" styleClass="textField">
+                           <VBox.margin>
+                              <Insets bottom="5.0" top="5.0" />
+                           </VBox.margin>
+                        </TextField>
+                        <Label text="Password">
+                           <VBox.margin>
+                              <Insets bottom="5.0" top="5.0" />
+                           </VBox.margin>
+                        </Label>
+                        <TextField fx:id="passTF" promptText="123" styleClass="textField">
+                           <VBox.margin>
+                              <Insets bottom="5.0" top="5.0" />
+                           </VBox.margin>
+                        </TextField>
+                        <Button fx:id="accSaveBT" mnemonicParsing="false" prefHeight="30.0" prefWidth="30.0" styleClass="buttonEdit">
+                           <VBox.margin>
+                              <Insets bottom="5.0" top="5.0" />
+                           </VBox.margin>
+                           <graphic>
+                              <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@imgs/1x/floppy-disk.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                        <Label fx:id="noteAccLB" text="NOTA">
+                           <VBox.margin>
+                              <Insets bottom="5.0" top="5.0" />
+                           </VBox.margin>
+                        </Label>
+                     </children>
+                  </VBox>
+              </items>
+            </SplitPane>
+         </right>
+         <left>
+            <VBox fx:id="folderVB" alignment="CENTER" centerShape="false" prefWidth="100.0" scaleShape="false" styleClass="VBox12" BorderPane.alignment="CENTER" />
+         </left>
+         <center>
+            <AnchorPane fx:id="centerAP">
                <children>
-                  <Label text="Folder Name" />
-                  <TextField fx:id="folderNameTF" promptText="Personal accounts" />
-                  <Button fx:id="folderSaveBT" mnemonicParsing="false" text="Save" />
-                  <Label fx:id="noteFolderLB" text="NOTA" />
+                  <ScrollPane fx:id="accountsSP" fitToHeight="true" fitToWidth="true" focusTraversable="false" hbarPolicy="NEVER" hvalue="0.23" layoutY="0.7999992370605469" styleClass="VBox1" vvalue="0.22" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <content>
+                        <VBox fx:id="accountsVB" alignment="CENTER" styleClass="VBox1" />
+                     </content>
+                  </ScrollPane>
                </children>
-            </VBox>
-            <VBox fx:id="accVB" alignment="CENTER">
-               <children>
-                  <Label text="Account" />
-                  <TextField fx:id="accTF" promptText="Personal email" />
-                  <Label text="Email" />
-                  <TextField fx:id="emailTF" promptText="ip_33@mail.com" />
-                  <Label text="Password" />
-                  <TextField fx:id="passTF" promptText="123" />
-                  <Button fx:id="accSaveBT" mnemonicParsing="false" text="Save" />
-                  <Label fx:id="noteAccLB" text="NOTA" />
-               </children>
-            </VBox>
-        </items>
-      </SplitPane>
-   </right>
-   <center>
-      <VBox fx:id="accountsVB" prefHeight="200.0" prefWidth="350.0" BorderPane.alignment="CENTER" />
-   </center>
-   <left>
-      <VBox fx:id="folderVB" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER" />
-   </left>
-</BorderPane>
+            </AnchorPane>
+         </center>
+      </BorderPane>
+   </children>
+</AnchorPane>

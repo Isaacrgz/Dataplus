@@ -11,11 +11,11 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="70.0" stylesheets="@../CSS/style.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.dataplus.controllers.ListViewElementController">
+<VBox fx:id="backgroundVB" alignment="CENTER_LEFT" maxHeight="60.0" minHeight="60.0" prefHeight="60.0" styleClass="accountItem" stylesheets="@../CSS/style.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.dataplus.controllers.ListViewElementController">
    <children>
       <Label fx:id="accountLB" text="ACCOUNT">
          <padding>
-            <Insets left="5.0" right="5.0" top="5.0" />
+            <Insets left="5.0" right="5.0" />
          </padding>
          <font>
             <Font name="Nirmala UI" size="14.0" />
@@ -35,9 +35,9 @@
             <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
          </rowConstraints>
          <children>
-            <Button fx:id="copyPassBT" mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0" styleClass="buttonEdit" GridPane.columnIndex="3">
+            <Button fx:id="copyPassBT" mnemonicParsing="false" prefHeight="30.0" prefWidth="30.0" styleClass="buttonEdit" GridPane.columnIndex="3">
                <graphic>
-                  <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true" styleClass="icon">
+                  <ImageView fitHeight="20.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true" styleClass="icon">
                      <image>
                         <Image url="@imgs/1x/content_copy.png" />
                      </image>
@@ -52,9 +52,9 @@
                   <Font name="Nirmala UI Semilight" size="14.0" />
                </font>
             </Label>
-            <Button fx:id="copyEmailBT" mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0" styleClass="buttonEdit" GridPane.columnIndex="1">
+            <Button fx:id="copyEmailBT" mnemonicParsing="false" prefHeight="30.0" prefWidth="30.0" styleClass="buttonEdit" GridPane.columnIndex="1">
                <graphic>
-                  <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="20.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@imgs/1x/content_copy.png" />
                      </image>
