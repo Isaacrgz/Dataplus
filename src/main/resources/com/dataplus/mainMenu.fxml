@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.dataplus.controllers.MainMenuController">
+   <top>
+      <ToolBar nodeOrientation="LEFT_TO_RIGHT" prefHeight="40.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+        <items>
+          <Button fx:id="folderBT" mnemonicParsing="false" text="Folder" />
+            <Button fx:id="accountBT" mnemonicParsing="false" text="Account" />
+        </items>
+      </ToolBar>
+   </top>
+   <right>
+      <SplitPane dividerPositions="0.5" orientation="VERTICAL" prefHeight="200.0" prefWidth="150.0">
+        <items>
+            <VBox fx:id="folderVB" alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <Label text="Folder Name" />
+                  <TextField fx:id="folderNameTF" promptText="Personal accounts" />
+                  <Button fx:id="folderSaveBT" mnemonicParsing="false" text="Save" />
+                  <Label fx:id="noteFolderLB" text="NOTA" />
+               </children>
+            </VBox>
+            <VBox fx:id="accVB" alignment="CENTER">
+               <children>
+                  <Label text="Account" />
+                  <TextField fx:id="accTF" promptText="Personal email" />
+                  <Label text="Email" />
+                  <TextField fx:id="emailTF" promptText="ip_33@mail.com" />
+                  <Label text="Password" />
+                  <TextField fx:id="passTF" promptText="123" />
+                  <Button fx:id="accSaveBT" mnemonicParsing="false" text="Save" />
+                  <Label fx:id="noteAccLB" text="NOTA" />
+               </children>
+            </VBox>
+        </items>
+      </SplitPane>
+   </right>
+   <center>
+      <VBox fx:id="accountsVB" prefHeight="200.0" prefWidth="350.0" BorderPane.alignment="CENTER" />
+   </center>
+   <left>
+      <VBox fx:id="folderVB" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER" />
+   </left>
+</BorderPane>

@@ -1,0 +1,20 @@
+.root{
+    verdeOpa: #009ca1;
+    verdeCurrent: #00cccc;
+    verdeCla: #00dddd;
+}
+.buttonEdit {
+    -fx-background-color: #00cccc;
+    -fx-background-radius: 30;
+}
+
+.buttonEdit:hover {
+    -fx-background-color: #00cccc;
+    -fx-effect: dropshadow(gaussian , #00cccc, 10 , 0.1 , 0 , 0 ); 
+}
+.buttonEdit:pressed {
+    -fx-effect: dropshadow(gaussian , #009ca1 , 10 , 0.1 , 0 , 0 ); 
+}
+
+
+
