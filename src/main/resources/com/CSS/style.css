@@ -22,9 +22,9 @@
 .accountItem {
     -fx-background-color:  #eeeeee;
 }
-.accountItem:hover{
+/*.accountItem:hover{
     -fx-background-color:  black;
-}
+}*/
 
 .VBox1 {
     -fx-background-color: #eeeeee;

@@ -9,6 +9,7 @@ import javafx.beans.binding.Bindings;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
+import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.input.Clipboard;
@@ -67,8 +68,7 @@ public class ListViewElementController implements Initializable {
         backgroundVB.backgroundProperty().bind( Bindings
                     .when( backgroundVB.focusedProperty() )
                     .then( focusBackground )
-                    .otherwise( unfocusBackground )
-        );
+                    .otherwise( unfocusBackground ));
 
         backgroundVB.borderProperty().bind(Bindings
                     .when( backgroundVB.hoverProperty() )
@@ -82,4 +82,5 @@ public class ListViewElementController implements Initializable {
         emailLB.setText(accountModel.getEmail());
         passLB.setText(accountModel.getPassword());
     }
+    
 }

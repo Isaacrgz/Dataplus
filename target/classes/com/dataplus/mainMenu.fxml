@@ -118,7 +118,7 @@
          <center>
             <AnchorPane fx:id="centerAP">
                <children>
-                  <ScrollPane fx:id="accountsSP" fitToHeight="true" fitToWidth="true" focusTraversable="false" hbarPolicy="NEVER" hvalue="0.23" layoutY="0.7999992370605469" styleClass="VBox1" vvalue="0.22" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <ScrollPane fx:id="accountsSP" fitToHeight="true" fitToWidth="true" focusTraversable="false" hbarPolicy="NEVER" layoutY="0.7999992370605469" styleClass="VBox1" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <content>
                         <VBox fx:id="accountsVB" alignment="CENTER" styleClass="VBox1" />
                      </content>
