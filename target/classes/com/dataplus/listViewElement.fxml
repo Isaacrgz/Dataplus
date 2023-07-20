@@ -35,7 +35,7 @@
             <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
          </rowConstraints>
          <children>
-            <Button fx:id="copyPassBT" mnemonicParsing="false" prefHeight="30.0" prefWidth="30.0" styleClass="buttonEdit" GridPane.columnIndex="3">
+            <Button fx:id="copyPassBT" mnemonicParsing="false" prefHeight="30.0" prefWidth="30.0" styleClass="buttonSave" GridPane.columnIndex="3">
                <graphic>
                   <ImageView fitHeight="20.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true" styleClass="icon">
                      <image>
@@ -52,7 +52,7 @@
                   <Font name="Nirmala UI Semilight" size="14.0" />
                </font>
             </Label>
-            <Button fx:id="copyEmailBT" mnemonicParsing="false" prefHeight="30.0" prefWidth="30.0" styleClass="buttonEdit" GridPane.columnIndex="1">
+            <Button fx:id="copyEmailBT" mnemonicParsing="false" prefHeight="30.0" prefWidth="30.0" styleClass="buttonSave" GridPane.columnIndex="1">
                <graphic>
                   <ImageView fitHeight="20.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
                      <image>

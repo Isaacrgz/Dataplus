@@ -54,12 +54,10 @@ public class App extends Application {
         if((height % 2) == 0){
             System.out.println("stage resize: " + height);
         }
-        
     }
 
     public Parent createRoot() throws IOException{
         FXMLLoader loader = new FXMLLoader(App.class.getResource("mainMenu.fxml"));
-        //loader.setLocation();
         AnchorPane root = loader.load();
         return root;
     }

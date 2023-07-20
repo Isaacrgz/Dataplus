@@ -7,13 +7,25 @@
     rojo: #dd0000;
 }
 
-.buttonEdit {
+.buttonSave {
     -fx-background-color: #34d0d0;
     -fx-background-radius: 30;
 }
-.buttonEdit:hover {
+.buttonSave:hover {
     -fx-background-color: #34d0d0;
     -fx-effect: dropshadow(gaussian , #34d0d0, 10 , 0.1 , 0 , 0 ); 
+}
+.buttonSave:pressed {
+    -fx-effect: dropshadow(gaussian , #009ca1 , 10 , 0.1 , 0 , 0 ); 
+}
+
+.buttonEdit {
+    -fx-background-color: #eeeeee;
+    -fx-background-radius: 30;
+}
+.buttonEdit:hover {
+    -fx-background-color: #eeeeee;
+    -fx-effect: dropshadow(gaussian , #eeeeee, 10 , 0.1 , 0 , 0 ); 
 }
 .buttonEdit:pressed {
     -fx-effect: dropshadow(gaussian , #009ca1 , 10 , 0.1 , 0 , 0 ); 
@@ -31,11 +43,11 @@
     -fx-background-insets: 0, 0, 0, 0;
 }
 
-.VBox12 {
+.colorTurque {
     -fx-background-color: #34d0d0;
 }
 
-.VBox3 {
+.colorTrans {
     -fx-background-color: transparent;
 }
 
@@ -49,12 +61,10 @@
     -fx-background-insets: 0, 0, 0, 0;
 }
 
-.splitBackground {
+
+.colorLightGray {
     -fx-background-color: #eeeeee;
 }
-.split-pane:vertical > .split-pane-divider {
-    -fx-background-color: #34d0d0;
- }
 
  .textField {
     -fx-background-color: white;
@@ -69,6 +79,8 @@
  .list-cell {
     -fx-padding: 0px;
     -fx-background: #eeeeee;
+    -fx-border-color: #eeeeee;
+    -fx-border-radius: 15;
 }
 
  .list-cell:filled:selected:focused, .list-cell:filled:selected {
@@ -84,7 +96,6 @@
 
 .list-cell:filled:hover {
     -fx-border-color: black;
-    -fx-border-radius: 15;
     -fx-background-insets: 0, 0, 0, 0;
     -fx-text-fill: black;
 }

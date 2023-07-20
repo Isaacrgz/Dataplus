@@ -7,6 +7,7 @@ import java.util.ResourceBundle;
 import com.dataplus.AccountDAO;
 import com.dataplus.App;
 import com.dataplus.interfaces.ImplementacionMySQL;
+import com.dataplus.models.AccountModel;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -24,10 +25,13 @@ import javafx.scene.layout.VBox;
 public class MainMenuController implements Initializable {
 
     @FXML private Button folderBT = new Button();
-    @FXML private Button accountBT = new Button();
+    @FXML private Button accEditBT = new Button();
     @FXML private Button folderSaveBT = new Button();
     @FXML private Button accSaveBT = new Button();
     @FXML private VBox folderVB = new VBox();
+    @FXML private VBox accNewVB = new VBox();
+    @FXML private VBox accEditVB = new VBox();
+    @FXML private VBox editorSP = new VBox();
     @FXML private AnchorPane centerAP = new AnchorPane();
     @FXML private BorderPane mainMenuBP = new BorderPane();
     @FXML private ListView<Node> accountsLV = new ListView<Node>();
@@ -36,12 +40,21 @@ public class MainMenuController implements Initializable {
     @FXML private TextField accTF = new TextField();
     @FXML private TextField emailTF = new TextField();
     @FXML private TextField passTF = new TextField();
+    @FXML private TextField accEditTF = new TextField();
+    @FXML private TextField emailEditTF = new TextField();
+    @FXML private TextField passEditTF = new TextField();
     @FXML private Label noteFolderLB = new Label();
     @FXML private Label noteAccLB = new Label();
+
+    private boolean minState = false; //false = show new account menu, true = show edit menu
+    private boolean firtClicked = false;
+    private boolean newEditState = false; //false = save new account, true = save edited account
+    //private int accId;
     
     AccountDAO accountDAO = new AccountDAO();
     ImplementacionMySQL imsql = new ImplementacionMySQL();
     ListViewElementController lec = new ListViewElementController();
+    AccountModel aModel = new AccountModel();
 
     public MainMenuController() {
     }
@@ -51,31 +64,54 @@ public class MainMenuController implements Initializable {
     public void initialize(URL arg0, ResourceBundle arg1) {
         
         selectData();
-        centerAP.setPrefHeight(50);
+        hideVBox(minState);
 
         folderBT.setOnAction((event) -> {
-            centerAP.setStyle("-fx-background-color: #2500dd");
-            centerAP.setPrefHeight(50);
         });
 
-        accountBT.setOnAction((event) -> {
+        accEditBT.setOnAction((event) -> {
+            
+            if((!firtClicked && newEditState) || (firtClicked && !newEditState || (firtClicked && newEditState))){            
+                accSaveBT.setDisable(false);
+                System.out.println("deshabilitar: " + accSaveBT.isDisable() + " NES: " + newEditState + " FC " + firtClicked);
+            }else if(!firtClicked && !newEditState){
+                noteAccLB.setText("Set a account");
+                accSaveBT.setDisable(true);
+                System.out.println("deshabilitar: " + accSaveBT.isDisable() + " NES: " + newEditState + " FC " + firtClicked);
+            }
+
+            minState = !minState;
+            hideVBox(minState);
+            newEditState = !newEditState;
+            
         });
 
         accountsLV.setOnMouseClicked((event) -> {
-            System.out.println("");
-            System.out.println(accountsLV.getSelectionModel().getSelectedIndex());
+            firtClicked = true;
+            noteAccLB.setText("Selected");
+            accSaveBT.setDisable(false);
+            int accId = accountsLV.getSelectionModel().getSelectedIndex();
+            aModel = imsql.listar().get(accId);
+            System.out.println(aModel.getId() + " " + aModel.getAccount() + " " + aModel.getEmail() + " " + aModel.getPassword());
         });
 
 
         accSaveBT.setOnAction((event) -> {
-            if(accTF.getText()!="" && emailTF.getText()!="" && passTF.getText()!=""){
-
-                noteAccLB.setText("RIGH");
-                imsql.insertar(accTF.getText(), emailTF.getText(), passTF.getText());
+            if(newEditState){                                   // edit account
+                System.out.println(newEditState + " edit");
+                getData();
+                imsql.actualizar(aModel.getId(), aModel.getAccount(), aModel.getEmail(), aModel.getPassword());
                 selectData();
-                
-            }else{
-                noteAccLB.setText("empty");
+            }else{                                              // new account
+                System.out.println(newEditState + " new");
+                if(!accTF.getText().isEmpty() && !emailTF.getText().isEmpty() && !passTF.getText().isEmpty()){
+                    noteAccLB.setText("RIGH");
+                    imsql.insertar(accTF.getText(), emailTF.getText(), passTF.getText());
+                    selectData();
+
+                }else{
+                    noteAccLB.setText("empty");
+                }
             }
         });
 
@@ -103,6 +139,35 @@ public class MainMenuController implements Initializable {
                 e.printStackTrace(System.out);
             }
         }
+    }
+
+    public void hideVBox(boolean state){
+        accEditVB.setVisible(state);
+        accEditVB.setManaged(state);
+        accNewVB.setVisible(!state);
+        accNewVB.setManaged(!state);
+    }
+
+    public void getData(){
+        if(!accEditTF.getText().isEmpty()){
+            aModel.setAccount(accEditTF.getText());
+        }else{ System.out.println("vacio acc"); }
+
+        if(!emailEditTF.getText().isEmpty()){
+            aModel.setEmail(emailEditTF.getText());
+        }else{ System.out.println("vacio email"); }
+
+        if(!passEditTF.getText().isEmpty()){
+            aModel.setPassword(passEditTF.getText());
+        }else{ System.out.println("vacio pass"); }
+
+        if(!accEditTF.getText().isEmpty() && !emailEditTF.getText().isEmpty() && !passEditTF.getText().isEmpty()){
+            System.out.println(aModel);
+            imsql.actualizar(aModel.getId(), aModel.getAccount(), aModel.getEmail(), aModel.getPassword());
+        }else{
+            System.out.println("los tres vacios");
+        }
+        
     }
 
 }
