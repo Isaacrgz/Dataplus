@@ -5,24 +5,13 @@ import java.util.ResourceBundle;
 
 import com.dataplus.models.AccountModel;
 
-import javafx.beans.binding.Bindings;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.geometry.Insets;
-import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.input.Clipboard;
 import javafx.scene.input.ClipboardContent;
-import javafx.scene.layout.Background;
-import javafx.scene.layout.BackgroundFill;
-import javafx.scene.layout.Border;
-import javafx.scene.layout.BorderStroke;
-import javafx.scene.layout.BorderStrokeStyle;
-import javafx.scene.layout.BorderWidths;
-import javafx.scene.layout.CornerRadii;
 import javafx.scene.layout.VBox;
-import javafx.scene.paint.Color;
 
 public class ListViewElementController implements Initializable {
     @FXML private Label accountLB = new Label();
@@ -31,15 +20,6 @@ public class ListViewElementController implements Initializable {
     @FXML private Button copyEmailBT = new Button();
     @FXML private Button copyPassBT = new Button();
     @FXML private VBox backgroundVB = new VBox();
-
-    private final Background focusBackground = new Background( new BackgroundFill( Color.web("#bee9e9"), 
-        new CornerRadii(15,15,15,15,false), Insets.EMPTY ) );
-    private final Background unfocusBackground = new Background( new BackgroundFill( Color.web("#eeeeee"), 
-        CornerRadii.EMPTY, Insets.EMPTY ) );
-    private final Border hoverBorder = new Border(new BorderStroke(Color.BLACK, BorderStrokeStyle.SOLID, 
-        new CornerRadii(15,15,15,15,false), BorderWidths.DEFAULT));
-    private final Border unhoverBorder = new Border(new BorderStroke( Color.web("#eeeeee"), BorderStrokeStyle.SOLID, 
-        CornerRadii.EMPTY, BorderWidths.DEFAULT));
 
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
@@ -56,25 +36,6 @@ public class ListViewElementController implements Initializable {
             content.putString(passLB.getText());
             clipboard.setContent(content);
         });
-
-        backgroundVB.setOnMouseClicked((event) -> {
-            backgroundVB.requestFocus();
-        });
-
-        backgroundVB.setOnMouseEntered((event) -> {
-            backgroundVB.isHover();
-        });
-
-        backgroundVB.backgroundProperty().bind( Bindings
-                    .when( backgroundVB.focusedProperty() )
-                    .then( focusBackground )
-                    .otherwise( unfocusBackground ));
-
-        backgroundVB.borderProperty().bind(Bindings
-                    .when( backgroundVB.hoverProperty() )
-                    .then( hoverBorder )
-                    .otherwise( unhoverBorder ));
-        
     }
 
     public void setData(AccountModel accountModel){
@@ -82,5 +43,5 @@ public class ListViewElementController implements Initializable {
         emailLB.setText(accountModel.getEmail());
         passLB.setText(accountModel.getPassword());
     }
-    
+
 }

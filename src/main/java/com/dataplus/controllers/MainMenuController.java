@@ -11,8 +11,10 @@ import com.dataplus.interfaces.ImplementacionMySQL;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
@@ -26,9 +28,9 @@ public class MainMenuController implements Initializable {
     @FXML private Button folderSaveBT = new Button();
     @FXML private Button accSaveBT = new Button();
     @FXML private VBox folderVB = new VBox();
-    @FXML private VBox accountsVB = new VBox();
     @FXML private AnchorPane centerAP = new AnchorPane();
     @FXML private BorderPane mainMenuBP = new BorderPane();
+    @FXML private ListView<Node> accountsLV = new ListView<Node>();
     @FXML private ScrollPane accountsSP = new ScrollPane();
     @FXML private TextField folderNameTF = new TextField();
     @FXML private TextField accTF = new TextField();
@@ -39,6 +41,7 @@ public class MainMenuController implements Initializable {
     
     AccountDAO accountDAO = new AccountDAO();
     ImplementacionMySQL imsql = new ImplementacionMySQL();
+    ListViewElementController lec = new ListViewElementController();
 
     public MainMenuController() {
     }
@@ -56,8 +59,11 @@ public class MainMenuController implements Initializable {
         });
 
         accountBT.setOnAction((event) -> {
-            centerAP.setStyle("-fx-background-color: #dd0000");
-            centerAP.setPrefHeight(400);
+        });
+
+        accountsLV.setOnMouseClicked((event) -> {
+            System.out.println("");
+            System.out.println(accountsLV.getSelectionModel().getSelectedIndex());
         });
 
 
@@ -83,7 +89,7 @@ public class MainMenuController implements Initializable {
     }
 
     public void selectData(){
-        accountsVB.getChildren().clear();
+        accountsLV.getItems().clear();
         for (int i=0; i<imsql.listar().size(); i++){
             FXMLLoader fxmlLoader = new FXMLLoader();
             fxmlLoader.setLocation(App.class.getResource("listViewElement.fxml"));
@@ -92,7 +98,7 @@ public class MainMenuController implements Initializable {
                 VBox vBox = fxmlLoader.load();
                 ListViewElementController lvec = fxmlLoader.getController();
                 lvec.setData(imsql.listar().get(i)); 
-                accountsVB.getChildren().add(vBox);
+                accountsLV.getItems().add(vBox);
             } catch (IOException e) {
                 e.printStackTrace(System.out);
             }

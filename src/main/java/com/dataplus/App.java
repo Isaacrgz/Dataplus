@@ -22,7 +22,7 @@ public class App extends Application {
     public void start(Stage stage) throws IOException {
         this.stage = stage;
         final double initialSceneWidth = 700;
-        final double initialSceneHeight = 480;
+        final double initialSceneHeight = 500;
         final Parent root = createRoot();
         final Scene scene = new Scene(root, initialSceneWidth, initialSceneHeight);
 
@@ -35,7 +35,7 @@ public class App extends Application {
             });
         
         this.stage.setMinWidth(700);
-        this.stage.setMinHeight(480);
+        this.stage.setMinHeight(500);
         
         this.stage.setScene(scene);
         this.stage.show();
@@ -51,7 +51,7 @@ public class App extends Application {
     public void resizeScene(double width, double height) {
         this.stage.setWidth(width + this.decorationWidth);
         this.stage.setHeight(height + this.decorationHeight);
-        if((height % 5) == 0){
+        if((height % 2) == 0){
             System.out.println("stage resize: " + height);
         }
         
@@ -65,7 +65,7 @@ public class App extends Application {
 
     private void setCurrentHeightToStage(Number number2) {
         stage.setHeight((double) number2);
-        if(((double) number2 % 5) == 0){
+        if(((double) number2 % 2) == 0){
             System.out.println("stage setCrr: " + number2);
         }
     }

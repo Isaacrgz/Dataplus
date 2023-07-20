@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import java.util.List;
 import static com.dataplus.SQLConnection.*;
 
-
 import com.dataplus.models.AccountModel;
 
 public class AccountDAO {
