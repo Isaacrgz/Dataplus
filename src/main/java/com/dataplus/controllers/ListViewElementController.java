@@ -17,16 +17,28 @@ public class ListViewElementController implements Initializable {
     @FXML private Label accountLB = new Label();
     @FXML private Label emailLB = new Label();
     @FXML private Label passLB = new Label();
-    @FXML private Label testLB = new Label();
     @FXML private Button copyEmailBT = new Button();
     @FXML private Button copyPassBT = new Button();
     @FXML private VBox backgroundVB = new VBox();
+
+    private int id;
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public ListViewElementController(){
     }
 
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
+
+        backgroundVB.setOnMouseClicked((event) -> {
+        });
+
         copyEmailBT.setOnAction((event) -> {
             Clipboard clipboard = Clipboard.getSystemClipboard();
             ClipboardContent content = new ClipboardContent();
@@ -51,7 +63,7 @@ public class ListViewElementController implements Initializable {
     public void setNewText(int id){
         accountLB.setText("entre");
         System.out.println(id);
-        testLB.setText("        " + id);
+        backgroundVB.setStyle("-fx-background-color: black");
     }
 
 }

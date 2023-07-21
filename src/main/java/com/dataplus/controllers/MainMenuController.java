@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import com.dataplus.AccountDAO;
 import com.dataplus.App;
 import com.dataplus.interfaces.ImplementacionMySQL;
 import com.dataplus.models.AccountModel;
@@ -51,11 +50,12 @@ public class MainMenuController implements Initializable {
     private boolean firtClicked = false;
     private boolean newEditState = false; //false = save new account, true = save edited account
     
-    AccountDAO accountDAO = new AccountDAO();
-    ImplementacionMySQL imsql = new ImplementacionMySQL();
-    AccountModel aModel = new AccountModel();
-    ListViewElementController lvec = new ListViewElementController();
-    VBox vBox;
+    //private AccountDAO accountDAO = new AccountDAO();
+    private ImplementacionMySQL imsql = new ImplementacionMySQL();
+    private AccountModel aModel = new AccountModel();
+    private ListViewElementController lvec = new ListViewElementController();
+    private VBox vBox;
+    private FXMLLoader fxmlLoader;
 
     public MainMenuController() {
     }
@@ -101,12 +101,8 @@ public class MainMenuController implements Initializable {
             accDeleteBT.setDisable(false);
             int accId = accountsLV.getSelectionModel().getSelectedIndex();
             if(accId >= 0){
-                
                 aModel = imsql.listar().get(accId);
-                accountsLV.getItems().get(accId);
-                lvec.setNewText(aModel.getId());
                 System.out.println(aModel.getId() + " " + aModel.getAccount() + " " + aModel.getEmail() + " " + aModel.getPassword());
-                
             }
         });
 
@@ -141,14 +137,12 @@ public class MainMenuController implements Initializable {
     public void selectData(){
         accountsLV.getItems().clear();
         for (int i=0; i<imsql.listar().size(); i++){
-            FXMLLoader fxmlLoader = new FXMLLoader();
+            fxmlLoader = new FXMLLoader();
             fxmlLoader.setLocation(App.class.getResource("listViewElement.fxml"));
-
             try {
                 vBox = fxmlLoader.load();
-                //ListViewElementController lvec = fxmlLoader.getController();
                 lvec = fxmlLoader.getController();
-                lvec.setData(imsql.listar().get(i)); 
+                lvec.setData(imsql.listar().get(i));
                 accountsLV.getItems().add(vBox);
             } catch (IOException e) {
                 e.printStackTrace(System.out);
@@ -183,19 +177,5 @@ public class MainMenuController implements Initializable {
         }
         
     }
-
-    // @Override
-    // protected void updateItem(Note note, boolean isEmpty){
-    //     if(isEmpty|| note == null){
-    //         setGraphic(null);
-    //     }
-    //     else {
-    //         // configure based on note:
-    //         controller.setText(...);
-    //         controller.setXXX(...);
-    //         setGraphic(graphic);
-    //     }
-
-    // }
 
 }
