@@ -54,6 +54,8 @@ public class MainMenuController implements Initializable {
     AccountDAO accountDAO = new AccountDAO();
     ImplementacionMySQL imsql = new ImplementacionMySQL();
     AccountModel aModel = new AccountModel();
+    ListViewElementController lvec = new ListViewElementController();
+    VBox vBox;
 
     public MainMenuController() {
     }
@@ -99,8 +101,12 @@ public class MainMenuController implements Initializable {
             accDeleteBT.setDisable(false);
             int accId = accountsLV.getSelectionModel().getSelectedIndex();
             if(accId >= 0){
-                aModel = imsql.listar().get(accId);  
+                
+                aModel = imsql.listar().get(accId);
+                accountsLV.getItems().get(accId);
+                lvec.setNewText(aModel.getId());
                 System.out.println(aModel.getId() + " " + aModel.getAccount() + " " + aModel.getEmail() + " " + aModel.getPassword());
+                
             }
         });
 
@@ -139,8 +145,9 @@ public class MainMenuController implements Initializable {
             fxmlLoader.setLocation(App.class.getResource("listViewElement.fxml"));
 
             try {
-                VBox vBox = fxmlLoader.load();
-                ListViewElementController lvec = fxmlLoader.getController();
+                vBox = fxmlLoader.load();
+                //ListViewElementController lvec = fxmlLoader.getController();
+                lvec = fxmlLoader.getController();
                 lvec.setData(imsql.listar().get(i)); 
                 accountsLV.getItems().add(vBox);
             } catch (IOException e) {
@@ -176,5 +183,19 @@ public class MainMenuController implements Initializable {
         }
         
     }
+
+    // @Override
+    // protected void updateItem(Note note, boolean isEmpty){
+    //     if(isEmpty|| note == null){
+    //         setGraphic(null);
+    //     }
+    //     else {
+    //         // configure based on note:
+    //         controller.setText(...);
+    //         controller.setXXX(...);
+    //         setGraphic(graphic);
+    //     }
+
+    // }
 
 }

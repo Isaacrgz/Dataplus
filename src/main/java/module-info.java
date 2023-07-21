@@ -1,5 +1,5 @@
 module com.dataplus {
-    requires javafx.controls;
+    requires transitive javafx.controls;
     requires javafx.fxml;
     requires transitive java.sql;
     requires transitive javafx.graphics;
