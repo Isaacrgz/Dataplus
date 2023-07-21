@@ -28,6 +28,7 @@ public class MainMenuController implements Initializable {
     @FXML private Button accEditBT = new Button();
     @FXML private Button folderSaveBT = new Button();
     @FXML private Button accSaveBT = new Button();
+    @FXML private Button accDeleteBT = new Button();
     @FXML private VBox folderVB = new VBox();
     @FXML private VBox accNewVB = new VBox();
     @FXML private VBox accEditVB = new VBox();
@@ -62,17 +63,19 @@ public class MainMenuController implements Initializable {
         
         selectData();
         hideVBox(minState);
+        accDeleteBT.setManaged(false);
 
         folderBT.setOnAction((event) -> {
         });
 
         accEditBT.setOnAction((event) -> {
-            
             if((!firtClicked && newEditState) || (firtClicked && !newEditState || (firtClicked && newEditState))){            
                 accSaveBT.setDisable(false);
+                accDeleteBT.setDisable(false);
                 System.out.println("deshabilitar: " + accSaveBT.isDisable() + " NES: " + newEditState + " FC " + firtClicked);
             }else if(!firtClicked && !newEditState){
                 noteAccLB.setText("Set a account");
+                accDeleteBT.setDisable(true);
                 accSaveBT.setDisable(true);
                 System.out.println("deshabilitar: " + accSaveBT.isDisable() + " NES: " + newEditState + " FC " + firtClicked);
             }
@@ -83,10 +86,17 @@ public class MainMenuController implements Initializable {
             
         });
 
+        accDeleteBT.setOnAction((event) -> {
+            System.out.println("delete");
+            imsql.eliminar(aModel.getId());
+            selectData();
+        });
+
         accountsLV.setOnMouseClicked((event) -> {
             firtClicked = true;
             noteAccLB.setText("Selected");
             accSaveBT.setDisable(false);
+            accDeleteBT.setDisable(false);
             int accId = accountsLV.getSelectionModel().getSelectedIndex();
             if(accId >= 0){
                 aModel = imsql.listar().get(accId);  
@@ -144,26 +154,25 @@ public class MainMenuController implements Initializable {
         accEditVB.setManaged(state);
         accNewVB.setVisible(!state);
         accNewVB.setManaged(!state);
+        accDeleteBT.setVisible(state);
+        accDeleteBT.setManaged(state);
     }
 
     public void getData(){
         if(!accEditTF.getText().isEmpty()){
             aModel.setAccount(accEditTF.getText());
-        }else{ System.out.println("vacio acc"); }
+        }
 
         if(!emailEditTF.getText().isEmpty()){
             aModel.setEmail(emailEditTF.getText());
-        }else{ System.out.println("vacio email"); }
+        }
 
         if(!passEditTF.getText().isEmpty()){
             aModel.setPassword(passEditTF.getText());
-        }else{ System.out.println("vacio pass"); }
+        }
 
-        if(!accEditTF.getText().isEmpty() && !emailEditTF.getText().isEmpty() && !passEditTF.getText().isEmpty()){
-            System.out.println(aModel);
-            imsql.actualizar(aModel.getId(), aModel.getAccount(), aModel.getEmail(), aModel.getPassword());
-        }else{
-            System.out.println("los tres vacios");
+        if(accEditTF.getText().isEmpty() && emailEditTF.getText().isEmpty() && passEditTF.getText().isEmpty()){
+            noteAccLB.setText("Enter a data at least");
         }
         
     }

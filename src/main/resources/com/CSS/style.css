@@ -8,7 +8,8 @@
     -grisCla2: #d8dcdc;
     -gris: #a0b2b7;
     -azul: #2500dd;
-    -rojo: #dd0000;
+    -rojo: #ed4545;
+    -rojoOsc: #8f2727;
 }
 
 .buttonSave {
@@ -37,6 +38,19 @@
     -fx-effect: dropshadow(gaussian , -verdeOsc , 10 , 0.1 , 0 , 0 ); 
 }
 
+.buttonDelete {
+    -fx-background-color: -rojo;
+    -fx-background-radius: 30;
+    -fx-effect: dropshadow(gaussian , -grisCla2, 10 , 0.1 , 0 , 5 ); 
+}
+.buttonDelete:hover {
+    -fx-background-color: -rojo;
+    -fx-effect: dropshadow(gaussian , -rojo, 10 , 0.1 , 0 , 0 ); 
+}
+.buttonDelete:pressed {
+    -fx-effect: dropshadow(gaussian , -rojoOsc , 10 , 0.1 , 0 , 0 ); 
+}
+
 .buttonCopy {
     -fx-background-color: -verdeCurrent;
     -fx-background-radius: 30;
@@ -49,8 +63,6 @@
 .buttonCopy:pressed {
     -fx-effect: dropshadow(gaussian , -verdeOsc , 10 , 0.1 , 0 , 0 ); 
 }
-
-
 
 .VBox1 {
     -fx-background-color: -grisCla;

@@ -61,7 +61,7 @@
                               </ImageView>
                            </graphic>
                         </Button>
-                        <Label fx:id="noteFolderLB" text="NOTA">
+                        <Label fx:id="noteFolderLB" text="NOTE">
                            <VBox.margin>
                               <Insets bottom="5.0" top="5.0" />
                            </VBox.margin>
@@ -137,19 +137,35 @@
                         </TextField>
                      </children>
                   </VBox>
-                  <Button fx:id="accSaveBT" mnemonicParsing="false" prefHeight="30.0" prefWidth="30.0" styleClass="buttonSave">
+                  <HBox alignment="CENTER">
                      <VBox.margin>
                         <Insets bottom="5.0" top="5.0" />
                      </VBox.margin>
-                     <graphic>
-                        <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@imgs/1x/floppy-disk.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                  </Button>
-                  <Label fx:id="noteAccLB" text="NOTA">
+                     <children>
+                        <Button fx:id="accSaveBT" mnemonicParsing="false" prefHeight="30.0" prefWidth="30.0" styleClass="buttonSave">
+                           <graphic>
+                              <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@imgs/1x/floppy-disk.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                        <Button fx:id="accDeleteBT" focusTraversable="false" mnemonicParsing="false" prefHeight="30.0" prefWidth="30.0" styleClass="buttonDelete">
+                           <graphic>
+                              <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@imgs/1x/trash-can.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <HBox.margin>
+                              <Insets left="40.0" />
+                           </HBox.margin>
+                        </Button>
+                     </children>
+                  </HBox>
+                  <Label fx:id="noteAccLB" text="NOTE">
                      <VBox.margin>
                         <Insets bottom="5.0" top="5.0" />
                      </VBox.margin>
