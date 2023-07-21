@@ -11,17 +11,17 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox fx:id="backgroundVB" alignment="CENTER_LEFT" maxHeight="60.0" minHeight="60.0" prefHeight="60.0" styleClass="VBox3" stylesheets="@../CSS/style.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.dataplus.controllers.ListViewElementController">
+<VBox fx:id="backgroundVB" alignment="CENTER_LEFT" maxHeight="65.0" minHeight="65.0" prefHeight="65.0" styleClass="colorTrans" stylesheets="@../CSS/style.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.dataplus.controllers.ListViewElementController">
    <children>
       <Label fx:id="accountLB" text="ACCOUNT">
          <padding>
-            <Insets left="5.0" right="5.0" />
+            <Insets left="20.0" right="5.0" />
          </padding>
          <font>
             <Font name="Nirmala UI" size="14.0" />
          </font>
       </Label>
-      <GridPane>
+      <GridPane alignment="CENTER">
          <VBox.margin>
             <Insets />
          </VBox.margin>
@@ -35,7 +35,7 @@
             <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
          </rowConstraints>
          <children>
-            <Button fx:id="copyPassBT" mnemonicParsing="false" prefHeight="30.0" prefWidth="30.0" styleClass="buttonSave" GridPane.columnIndex="3">
+            <Button fx:id="copyPassBT" mnemonicParsing="false" prefHeight="30.0" prefWidth="30.0" styleClass="buttonCopy" GridPane.columnIndex="3">
                <graphic>
                   <ImageView fitHeight="20.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true" styleClass="icon">
                      <image>
@@ -52,7 +52,7 @@
                   <Font name="Nirmala UI Semilight" size="14.0" />
                </font>
             </Label>
-            <Button fx:id="copyEmailBT" mnemonicParsing="false" prefHeight="30.0" prefWidth="30.0" styleClass="buttonSave" GridPane.columnIndex="1">
+            <Button fx:id="copyEmailBT" mnemonicParsing="false" prefHeight="30.0" prefWidth="30.0" styleClass="buttonCopy" GridPane.columnIndex="1">
                <graphic>
                   <ImageView fitHeight="20.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -70,6 +70,9 @@
                </font>
             </Label>
          </children>
+         <padding>
+            <Insets left="20.0" />
+         </padding>
       </GridPane>
    </children>
 </VBox>

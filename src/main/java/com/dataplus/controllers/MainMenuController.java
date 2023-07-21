@@ -49,16 +49,13 @@ public class MainMenuController implements Initializable {
     private boolean minState = false; //false = show new account menu, true = show edit menu
     private boolean firtClicked = false;
     private boolean newEditState = false; //false = save new account, true = save edited account
-    //private int accId;
     
     AccountDAO accountDAO = new AccountDAO();
     ImplementacionMySQL imsql = new ImplementacionMySQL();
-    ListViewElementController lec = new ListViewElementController();
     AccountModel aModel = new AccountModel();
 
     public MainMenuController() {
     }
-
 
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
@@ -91,10 +88,11 @@ public class MainMenuController implements Initializable {
             noteAccLB.setText("Selected");
             accSaveBT.setDisable(false);
             int accId = accountsLV.getSelectionModel().getSelectedIndex();
-            aModel = imsql.listar().get(accId);
-            System.out.println(aModel.getId() + " " + aModel.getAccount() + " " + aModel.getEmail() + " " + aModel.getPassword());
+            if(accId >= 0){
+                aModel = imsql.listar().get(accId);  
+                System.out.println(aModel.getId() + " " + aModel.getAccount() + " " + aModel.getEmail() + " " + aModel.getPassword());
+            }
         });
-
 
         accSaveBT.setOnAction((event) -> {
             if(newEditState){                                   // edit account

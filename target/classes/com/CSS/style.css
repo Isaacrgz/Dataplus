@@ -1,38 +1,59 @@
 .root {
-    verdeOpa: #13c4ca;
-    verdeCurrent: #34d0d0;
-    verdeCla: #95eeee;
-    verdeClaa: #bee9e9;
-    azul: #2500dd;
-    rojo: #dd0000;
+    -verdeOsc: #009ca1;
+    -verdeOpa: #13c4ca;
+    -verdeCurrent: #34d0d0;
+    -verdeCla: #95eeee;
+    -verdeClaa: #bee9e9;
+    -grisCla: #eeeeee;
+    -grisCla2: #d8dcdc;
+    -gris: #a0b2b7;
+    -azul: #2500dd;
+    -rojo: #dd0000;
 }
 
 .buttonSave {
-    -fx-background-color: #34d0d0;
+    -fx-background-color: -verdeCurrent;
     -fx-background-radius: 30;
+    -fx-effect: dropshadow(gaussian , -grisCla2, 10 , 0.1 , 0 , 5 ); 
 }
 .buttonSave:hover {
-    -fx-background-color: #34d0d0;
-    -fx-effect: dropshadow(gaussian , #34d0d0, 10 , 0.1 , 0 , 0 ); 
+    -fx-background-color: -verdeCurrent;
+    -fx-effect: dropshadow(gaussian , -verdeCurrent, 10 , 0.1 , 0 , 0 ); 
 }
 .buttonSave:pressed {
-    -fx-effect: dropshadow(gaussian , #009ca1 , 10 , 0.1 , 0 , 0 ); 
+    -fx-effect: dropshadow(gaussian , -verdeOsc , 10 , 0.1 , 0 , 0 ); 
 }
 
 .buttonEdit {
-    -fx-background-color: #eeeeee;
+    -fx-background-color: -grisCla;
     -fx-background-radius: 30;
+    -fx-effect: dropshadow(gaussian , -verdeOpa, 10 , 0.1 , 0 , 5 ); 
 }
 .buttonEdit:hover {
-    -fx-background-color: #eeeeee;
-    -fx-effect: dropshadow(gaussian , #eeeeee, 10 , 0.1 , 0 , 0 ); 
+    -fx-background-color: -grisCla;
+    -fx-effect: dropshadow(gaussian , -grisCla, 10 , 0.1 , 0 , 0 ); 
 }
 .buttonEdit:pressed {
-    -fx-effect: dropshadow(gaussian , #009ca1 , 10 , 0.1 , 0 , 0 ); 
+    -fx-effect: dropshadow(gaussian , -verdeOsc , 10 , 0.1 , 0 , 0 ); 
 }
 
+.buttonCopy {
+    -fx-background-color: -verdeCurrent;
+    -fx-background-radius: 30;
+    -fx-effect: dropshadow(gaussian , -grisCla2, 10 , 0.0 , 0 , 5 ); 
+}
+.buttonCopy:hover {
+    -fx-background-color: -verdeCurrent;
+    -fx-effect: dropshadow(gaussian , -verdeCurrent, 10 , 0.1 , 0 , 0 ); 
+}
+.buttonCopy:pressed {
+    -fx-effect: dropshadow(gaussian , -verdeOsc , 10 , 0.1 , 0 , 0 ); 
+}
+
+
+
 .VBox1 {
-    -fx-background-color: #eeeeee;
+    -fx-background-color: -grisCla;
     -fx-focus-color: transparent;
     -fx-faint-focus-color: transparent;
 }
@@ -44,12 +65,15 @@
 }
 
 .colorTurque {
-    -fx-background-color: #34d0d0;
+    -fx-background-color: -verdeCurrent;
 }
-
 .colorTrans {
     -fx-background-color: transparent;
 }
+.colorLightGray {
+    -fx-background-color: #eeeeee;
+}
+
 
 .button1 {
     -fx-background-color: #eeeeee;
@@ -61,43 +85,66 @@
     -fx-background-insets: 0, 0, 0, 0;
 }
 
-
-.colorLightGray {
-    -fx-background-color: #eeeeee;
-}
-
  .textField {
     -fx-background-color: white;
     -fx-background-radius: 15;
     -fx-border-color: transparent;
     -fx-border-radius: 15;
- }
+}
  .textField:focused {
     -fx-border-color: #34d0d0;
- }
+}
 
  .list-cell {
-    -fx-padding: 0px;
     -fx-background: #eeeeee;
     -fx-border-color: #eeeeee;
-    -fx-border-radius: 15;
+    -fx-background-insets: 0 0 0 0;
+    -fx-padding: 0 0 0 0;
+    -fx-border-radius: 30;
 }
-
- .list-cell:filled:selected:focused, .list-cell:filled:selected {
-    -fx-background-color: #bee9e9;
-    -fx-background-radius: 15;
-    -fx-text-fill: black;
-}
-
-.list-cell:even { /* <=== changed to even */
-    -fx-background-color: #eeeeee;
-    -fx-text-fill: black;
-}
-
 .list-cell:filled:hover {
     -fx-border-color: black;
     -fx-background-insets: 0, 0, 0, 0;
     -fx-text-fill: black;
+} 
+.list-cell:filled:selected:focused, .list-cell:filled:selected {
+    -fx-background-color: #bee9e9;
+    -fx-border-color: #bee9e9;
+    -fx-text-fill: black;
 }
+.list-cell:even {
+    -fx-background-color: #eeeeee;
+    -fx-text-fill: black;
+}
+.list-view .scroll-bar:vertical .increment-button,
+.list-view .scroll-bar:vertical .decrement-button {
+    -fx-background-color:transparent;
+    -fx-background-radius: 0em;
+    -fx-padding:0 5 0 0;
+}
+
+.list-view .scroll-bar:vertical .increment-arrow,
+.list-view .scroll-bar:vertical .decrement-arrow{
+    -fx-background-color:transparent;
+    -fx-background-radius: 0em;
+    -fx-padding:0 5 0 0;
+}
+
+.list-view .scroll-bar:vertical .thumb {
+    -fx-background-color: -gris;
+    -fx-background-radius: 10 10 10 10;
+    -fx-opacity: 0.5;
+} 
+.list-view .scroll-bar:vertical .thumb:hover,
+.list-view .scroll-bar:vertical .thumb:pressed {
+    -fx-opacity: 1;
+} 
+.list-view .scroll-bar:vertical .track {
+    -fx-background-color: -gris;
+    -fx-opacity: 0.2;
+    -fx-background-radius: 10 10 10 10;
+}
+
+
 
 
