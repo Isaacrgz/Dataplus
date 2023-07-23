@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox fx:id="backgroundVB" alignment="CENTER_LEFT" maxHeight="65.0" minHeight="65.0" prefHeight="65.0" styleClass="colorTrans" stylesheets="@../CSS/style.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.dataplus.controllers.ListViewElementController">
+<VBox fx:id="backgroundVB" alignment="CENTER_LEFT" maxHeight="65.0" minHeight="65.0" prefHeight="65.0" styleClass="colorTrans" stylesheets="@../CSS/style.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.dataplus.controllers.ListViewAccController">
    <children>
       <Label fx:id="accountLB" text="ACCOUNT">
          <padding>

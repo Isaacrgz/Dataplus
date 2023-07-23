@@ -5,7 +5,6 @@ import javafx.application.Application;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
@@ -23,7 +22,7 @@ public class App extends Application {
         this.stage = stage;
         final double initialSceneWidth = 700;
         final double initialSceneHeight = 500;
-        final Parent root = createRoot();
+        final AnchorPane root = createRoot();
         final Scene scene = new Scene(root, initialSceneWidth, initialSceneHeight);
 
         this.stage.setResizable(true);
@@ -56,7 +55,7 @@ public class App extends Application {
         }
     }
 
-    public Parent createRoot() throws IOException{
+    public AnchorPane createRoot() throws IOException{
         FXMLLoader loader = new FXMLLoader(App.class.getResource("mainMenu.fxml"));
         AnchorPane root = loader.load();
         return root;

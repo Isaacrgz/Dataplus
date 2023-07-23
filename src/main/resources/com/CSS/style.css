@@ -107,7 +107,7 @@
     -fx-border-color: #34d0d0;
 }
 
- .list-cell {
+.list-cell {
     -fx-background: #eeeeee;
     -fx-border-color: #eeeeee;
     -fx-background-insets: 0 0 0 0;
@@ -134,14 +134,12 @@
     -fx-background-radius: 0em;
     -fx-padding:0 5 0 0;
 }
-
 .list-view .scroll-bar:vertical .increment-arrow,
 .list-view .scroll-bar:vertical .decrement-arrow{
     -fx-background-color:transparent;
     -fx-background-radius: 0em;
     -fx-padding:0 5 0 0;
 }
-
 .list-view .scroll-bar:vertical .thumb {
     -fx-background-color: -gris;
     -fx-background-radius: 10 10 10 10;
@@ -157,6 +155,52 @@
     -fx-background-radius: 10 10 10 10;
 }
 
-
+.list-cell1 {
+    -fx-background-color: -verdeCurrent;
+    -fx-border-color: -VerdeCurrent;
+    -fx-background-insets: 0 0 0 0;
+    -fx-padding: 0 0 0 0;
+    -fx-border-radius: 30;
+}
+.list-cell1:filled:hover {
+    -fx-border-color: black;
+    -fx-background-insets: 0, 0, 0, 0;
+    -fx-text-fill: black;
+} 
+.list-cell1:filled:selected:focused, .list-cell1:filled:selected {
+    -fx-background-color: #bee9e9;
+    -fx-border-color: #bee9e9;
+    -fx-text-fill: black;
+}
+.list-cell1:even {
+    -fx-background-color: #eeeeee;
+    -fx-text-fill: black;
+}
+.list-view1 .scroll-bar:vertical .increment-button,
+.list-view1 .scroll-bar:vertical .decrement-button {
+    -fx-background-color:transparent;
+    -fx-background-radius: 0em;
+    -fx-padding:0 5 0 0;
+}
+.list-view1 .scroll-bar:vertical .increment-arrow,
+.list-view1 .scroll-bar:vertical .decrement-arrow{
+    -fx-background-color:transparent;
+    -fx-background-radius: 0em;
+    -fx-padding:0 5 0 0;
+}
+.list-view1 .scroll-bar:vertical .thumb {
+    -fx-background-color: -gris;
+    -fx-background-radius: 10 10 10 10;
+    -fx-opacity: 0.5;
+} 
+.list-view1 .scroll-bar:vertical .thumb:hover,
+.list-view1 .scroll-bar:vertical .thumb:pressed {
+    -fx-opacity: 1;
+} 
+.list-view1 .scroll-bar:vertical .track {
+    -fx-background-color: -gris;
+    -fx-opacity: 0.2;
+    -fx-background-radius: 10 10 10 10;
+}
 
 

@@ -13,7 +13,7 @@ import javafx.scene.input.Clipboard;
 import javafx.scene.input.ClipboardContent;
 import javafx.scene.layout.VBox;
 
-public class ListViewElementController implements Initializable {
+public class ListViewAccController implements Initializable {
     @FXML private Label accountLB = new Label();
     @FXML private Label emailLB = new Label();
     @FXML private Label passLB = new Label();
@@ -30,7 +30,7 @@ public class ListViewElementController implements Initializable {
         this.id = id;
     }
 
-    public ListViewElementController(){
+    public ListViewAccController(){
     }
 
     @Override

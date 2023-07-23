@@ -1,5 +1,7 @@
 package com.dataplus.models;
 
+import java.util.Arrays;
+
 public class FolderModel {
     
     private String folderName;
@@ -9,8 +11,8 @@ public class FolderModel {
     private int accountCounter;
 
     public FolderModel(String folderName) {
-        this.folderName = folderName;
         this.id = ++folderCounter;
+        this.folderName = folderName;
     }
 
     public void setFolder(String newFolder){
@@ -33,6 +35,7 @@ public class FolderModel {
 
     @Override
     public String toString() {
-        return "FolderModel [folderName=" + this.folderName + ", id=" + this.id + "]";
+        return "FolderModel [folderName=" + folderName + ", id=" + id + ", accounts=" + Arrays.toString(accounts)
+                + ", accountCounter=" + accountCounter + "]";
     }
 }

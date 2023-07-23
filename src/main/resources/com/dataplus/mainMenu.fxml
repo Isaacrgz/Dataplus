@@ -176,7 +176,7 @@
          <left>
             <AnchorPane BorderPane.alignment="CENTER">
                <children>
-                  <ListView prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                  <ListView prefHeight="200.0" prefWidth="200.0" styleClass="list-cell1" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                </children>
             </AnchorPane>
          </left>

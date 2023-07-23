@@ -53,7 +53,7 @@ public class MainMenuController implements Initializable {
     //private AccountDAO accountDAO = new AccountDAO();
     private ImplementacionMySQL imsql = new ImplementacionMySQL();
     private AccountModel aModel = new AccountModel();
-    private ListViewElementController lvec = new ListViewElementController();
+    private ListViewAccController lvec = new ListViewAccController();
     private VBox vBox;
     private FXMLLoader fxmlLoader;
 
@@ -94,6 +94,27 @@ public class MainMenuController implements Initializable {
             selectData();
         });
 
+        // accountsLV.setOnMouseClicked((event) -> {
+        //     firtClicked = true;
+        //     noteAccLB.setText("Selected");
+        //     accSaveBT.setDisable(false);
+        //     accDeleteBT.setDisable(false);
+        //     int accId = accountsLV.getSelectionModel().getSelectedIndex();
+        //     if(accId >= 0){
+        //         aModel = imsql.listar().get(accId);
+        //         System.out.println(aModel.getId() + " " + aModel.getAccount() + " " + aModel.getEmail() + " " + aModel.getPassword());
+        //     }
+        //     int e =0;
+        //     for (Node node : accountsLV.getItems()) {
+        //         if( e == accId ){
+        //             node.setStyle("-fx-background-color: white");
+        //         }else{
+        //             node.setStyle("-fx-background-color: #eeeeee");
+        //         }
+        //         e++;
+        //     }
+        // });
+        
         accountsLV.setOnMouseClicked((event) -> {
             firtClicked = true;
             noteAccLB.setText("Selected");
@@ -138,7 +159,7 @@ public class MainMenuController implements Initializable {
         accountsLV.getItems().clear();
         for (int i=0; i<imsql.listar().size(); i++){
             fxmlLoader = new FXMLLoader();
-            fxmlLoader.setLocation(App.class.getResource("listViewElement.fxml"));
+            fxmlLoader.setLocation(App.class.getResource("listViewAcc.fxml"));
             try {
                 vBox = fxmlLoader.load();
                 lvec = fxmlLoader.getController();
