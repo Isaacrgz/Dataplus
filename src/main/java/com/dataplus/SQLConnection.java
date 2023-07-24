@@ -8,7 +8,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 public class SQLConnection {
-    private static final String JDBC_URL = "jdbc:mysql://localhost:3306/accounts?useSSL=false&useTimezone=true=&serverTimezone=UTC&allowKeyRetrieval=true";
+    private static final String JDBC_URL = "jdbc:mysql://localhost:3306/dataplus?useSSL=false&useTimezone=true=&serverTimezone=UTC&allowKeyRetrieval=true";
     private static final String JDBC_USER = "root";
     private static final String JDBC_PASS = "admin";
 

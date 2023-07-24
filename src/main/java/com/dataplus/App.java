@@ -56,6 +56,7 @@ public class App extends Application {
     }
 
     public AnchorPane createRoot() throws IOException{
+        //FXMLLoader loader = new FXMLLoader(App.class.getResource("mainMenu.fxml"));
         FXMLLoader loader = new FXMLLoader(App.class.getResource("mainMenu.fxml"));
         AnchorPane root = loader.load();
         return root;
